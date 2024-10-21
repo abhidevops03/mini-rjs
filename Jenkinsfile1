@@ -1,0 +1,19 @@
+pipeline {
+      agent any
+      stages {
+         stage ('Build') {
+          steps {
+             sh '''cd $WORKSPACE
+                   docker build -t devops-react:v${BUILD_NUMBER} .'''
+             }
+           }
+           stage('push Docker-Hub'){
+            steps {
+                sh '''
+		            docker tag devops-reac:v${BUILD_NUMBER} abhidevops24/abhidevops:v${BUILD_NUMBER}
+                docker push abhidevops24/abhidevops:v${BUILD_NUMBER}   
+       '''
+            }
+          }
+          }
+        }
