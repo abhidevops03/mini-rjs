@@ -10,7 +10,7 @@ pipeline {
            stage('push Docker-Hub'){
             steps {
                 sh '''
-		            docker tag devops-reac:v${BUILD_NUMBER} abhidevops24/abhidevops:v${BUILD_NUMBER}
+		            docker tag devops-react:v${BUILD_NUMBER} abhidevops24/abhidevops:v${BUILD_NUMBER}
                 docker push abhidevops24/abhidevops:v${BUILD_NUMBER}   
        '''
             }
